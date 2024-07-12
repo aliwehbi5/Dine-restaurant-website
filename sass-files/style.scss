@@ -1,0 +1,673 @@
+@import "varaibles";
+
+body {
+  font-family: "League Spartan", sans-serif;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: $maxMobile) {
+    min-width: 300px;
+  }
+  @media (min-width: $minSmall) {
+    width: 720px;
+  }
+  @media (min-width: $minMedium) {
+    width: 960px;
+  }
+  @media (min-width: $minLarge) {
+    width: 1140px;
+  }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+}
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $minMedium) {
+    height: 100vh;
+  }
+  @media (min-width: $minMedium) and (max-width: 1400px) {
+    height: 80vh;
+  }
+  .background {
+    width: 100%;
+    height: 100%;
+    background: url(https://dinner-restaurant-website-react.netlify.app/static/media/hero-bg-tablet@2x.a41d079d.jpg)
+      top no-repeat;
+    background-size: cover;
+    padding-top: 50%;
+    @media (min-width: $minMedium) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url(https://dinner-restaurant-website-react.netlify.app/static/media/hero-bg-desktop@2x.eb3018c2.jpg);
+      background-position: right;
+      padding-top: 0;
+    }
+  }
+  .header-content {
+    padding: 40px;
+    height: 100%;
+    color: white;
+    text-align: center;
+    background-color: #000;
+    padding-bottom: 100px;
+    @media (min-width: $minMedium) {
+      width: 50%;
+      background: linear-gradient(90deg, #000 55%, #111 0);
+      padding-left: 100px;
+      padding-bottom: 40px;
+      text-align: start;
+    }
+    p.title {
+      font: {
+        size: 4.5rem;
+        weight: 300;
+      }
+      line-height: 4.5rem;
+      margin: 40px 0;
+      @media (max-width: 1400px) {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+      }
+      @media (max-width: $maxMobile) {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+      }
+      @media (min-width: $minMedium) {
+        margin: 120px 0 80px;
+      }
+    }
+    p.description {
+      font: {
+        size: 2rem;
+        weight: 100;
+      }
+      @media (max-width: 1400px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  a.main-btn {
+    margin: auto;
+    margin-top: 50px;
+    @media (min-width: $minMedium) and (max-width: 1400px) {
+      width: 100%;
+    }
+  }
+}
+.main-btn {
+  width: 50%;
+  font: {
+    size: 1.4rem;
+    weight: 600;
+  }
+  padding: 20px;
+  display: block;
+  text-align: center;
+  transition: $main-transition;
+
+  &.white-btn {
+    color: white;
+    border: 2px solid white;
+    &:hover {
+      background-color: white;
+      color: $black-color;
+    }
+  }
+  &.black-btn {
+    color: white;
+    border: 2px solid $black-color;
+    background-color: $black-color;
+    &:hover {
+      background-color: white;
+      color: $black-color;
+    }
+  }
+  @media (max-width: $maxMobile) {
+    width: 100%;
+  }
+}
+section {
+  padding: 0 100px;
+  @media (max-width: $maxMobile) {
+    padding: 0 25px;
+  }
+  .content {
+    color: $black-color;
+    width: 100%;
+    position: relative;
+    @media (max-width: $maxMobile) {
+      text-align: center;
+    }
+    @media (min-width: $minMedium) {
+      max-width: 500px;
+    }
+    &::before {
+      content: url(https://dinner-restaurant-website-react.netlify.app/static/media/pattern-divide.bf6d0c5c.svg);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 3.5rem;
+      @media (max-width: $maxMobile) {
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+    }
+    p {
+      font-size: 22px;
+      @media (max-width: $maxMobile) {
+        font-size: 18px;
+      }
+    }
+  }
+}
+section.first-section,
+section.second-section,
+section.events {
+  display: flex;
+  gap: 100px;
+  @media (max-width: $maxMobile) {
+    gap: 50px;
+  }
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  @media (min-width: $minMedium) {
+    flex-direction: row;
+  }
+  @media (min-width: $minMedium) {
+    &::before {
+      content: "";
+      position: absolute;
+      height: 330px;
+      width: 60%;
+      background-color: #ededed;
+      border-top-right-radius: 100px;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  .img {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    img {
+      margin-top: -2.5rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: $maxMobile) {
+      box-shadow: 0 38px 20px 17px #ededed;
+    }
+  }
+}
+section.second-section {
+  flex-direction: column-reverse;
+  @media (min-width: $minMedium) {
+    flex-direction: row;
+  }
+  justify-content: space-between;
+  margin-top: 100px;
+
+  &::before {
+    right: 0;
+    left: auto;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 0;
+  }
+  .img {
+    &::before {
+      content: url(https://dinner-restaurant-website-react.netlify.app/static/media/pattern-lines.df381b88.svg);
+      position: absolute;
+      top: 50%;
+      right: -70px;
+      z-index: -1;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      @media (max-width: $maxMobile) {
+        right: -25px;
+      }
+    }
+    img {
+      margin-top: 0;
+      @media (min-width: $minMedium) {
+        transform: translateY(3.5rem);
+        -webkit-transform: translateY(3.5rem);
+        -moz-transform: translateY(3.5rem);
+        -ms-transform: translateY(3.5rem);
+        -o-transform: translateY(3.5rem);
+      }
+    }
+  }
+  .content {
+    margin: auto;
+    h1 {
+      text-align: center;
+    }
+  }
+}
+section.highlight {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background-color: $black-color;
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+  @media (min-width: $minMedium) {
+    margin-top: 0px;
+  }
+  @media (max-width: $maxMobile) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  & > div {
+    width: 100%;
+  }
+  .content {
+    color: white;
+    margin: auto;
+    @media (max-width: 1400px) {
+      text-align: center;
+    }
+  }
+  ul.food-list {
+    li {
+      position: relative;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      @media (min-width: $minMedium) {
+        gap: 75px;
+      }
+      @media (min-width: $minMedium) and (max-width: 1400px) {
+        padding-left: 100px;
+      }
+      @media (max-width: 768px) {
+        gap: 20px;
+        flex-direction: column;
+        padding: 20px 0;
+      }
+      &:not(:last-of-type) {
+        border-bottom: 1px solid white;
+      }
+      @media (min-width: $minSmall) {
+        &::before {
+          content: url(https://dinner-restaurant-website-react.netlify.app/static/media/pattern-divide.bf6d0c5c.svg);
+          position: absolute;
+          top: 50%;
+          left: 150px;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          z-index: 1;
+          @media (min-width: $minMedium) and (max-width: 1400px) {
+            left: 50px;
+          }
+        }
+      }
+      img {
+        max-width: 150px;
+        position: relative;
+        z-index: 10;
+        @media (max-width: $maxMobile) {
+          max-width: 250px;
+        }
+      }
+      div {
+        @media (max-width: 1400px) {
+          text-align: center;
+        }
+      }
+      p {
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-top: 15px !important;
+        width: 80%;
+        @media (max-width: 1400px) {
+          margin: auto;
+        }
+        @media (min-width: $minMedium) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+section.events {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @media (min-width: $minMedium) {
+    &::before {
+      width: 30%;
+      top: 0;
+      bottom: auto;
+    }
+    &::after {
+      content: url(https://dinner-restaurant-website-react.netlify.app/static/media/pattern-lines.df381b88.svg);
+      position: absolute;
+      width: 160px;
+      height: 76px;
+      top: 160px;
+      left: 30px;
+    }
+  }
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+  .img {
+    img {
+      box-shadow: 0 20px 20px 0 grey;
+      margin-top: 0;
+    }
+  }
+  .content {
+    color: #242b37;
+    text-align: center;
+    max-width: 570px;
+    @media (max-width: $maxMobile) {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+    &::before {
+      content: none;
+    }
+    h1 {
+      margin: 30px 0;
+    }
+    a.main-btn {
+      margin: auto;
+      margin-top: 30px;
+    }
+    ul.events-list {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 20px;
+
+      @media (min-width: $minSmall) {
+        margin-top: 50px;
+      }
+      li {
+        font-size: 20px;
+        font-weight: bold;
+        color: #979797;
+        cursor: pointer;
+        transition: $main-transition;
+        &:hover {
+          color: $navy-color;
+        }
+      }
+    }
+  }
+}
+section.reservation {
+  background: url(https://dinner-restaurant-website-react.netlify.app/static/media/ready-bg-desktop@2x.1e23bafe.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding-top: 125px;
+  padding-bottom: 75px;
+  min-height: 50vh;
+  h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 0;
+    @media (min-width: $minMedium) {
+      font-size: 4rem;
+    }
+  }
+  a {
+    margin: auto;
+  }
+}
+section.header-section {
+  background-image: url(https://dinner-restaurant-website-react.netlify.app/static/media/hero-bg-mobile.af895c99.jpg);
+  background-size: cover;
+  min-height: 600px;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+  @media (min-width: 1200px) {
+    text-align: start;
+  }
+  .logo {
+    @media (min-width: $minSmall) {
+      text-align: start;
+    }
+  }
+  h1 {
+    font-weight: 500;
+    font-size: 3.5rem;
+    @media (max-width: $maxMobile) {
+      font-size: 3rem;
+    }
+  }
+  p {
+    font-weight: 200;
+    font-size: 1.5rem;
+    margin: auto;
+    margin-top: 3rem;
+    max-width: 70%;
+    @media (min-width: 1200px) {
+      max-width: 380px;
+      margin: 3rem 0 0;
+    }
+    @media (max-width: $maxMobile) {
+      max-width: none;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+  }
+  a.main-btn {
+    display: none;
+    @media (max-width: $maxMobile) {
+      display: block;
+      margin-top: 1.5rem;
+    }
+  }
+}
+section.space {
+  position: relative;
+  min-height: 400px;
+  @media (max-width: $maxMobile) {
+    min-height: 500px;
+  }
+  @media (min-width: $minMedium) {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 100%;
+      border-radius: 0 0 120px 0;
+      background-color: #979797;
+      left: 0;
+      top: 0;
+      -webkit-border-radius: 0 0 120px 0;
+      -moz-border-radius: 0 0 120px 0;
+      -ms-border-radius: 0 0 120px 0;
+      -o-border-radius: 0 0 120px 0;
+      z-index: -1;
+    }
+    &::after {
+      content: url(https://dinner-restaurant-website-react.netlify.app/static/media/pattern-lines.df381b88.svg);
+      position: absolute;
+      top: 50%;
+      left: 60%;
+      transform: translate(-60%, -50%);
+      -webkit-transform: translate(-60%, -50%);
+      -moz-transform: translate(-60%, -50%);
+      -ms-transform: translate(-60%, -50%);
+      -o-transform: translate(-60%, -50%);
+      z-index: -1;
+    }
+  }
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 40px;
+  background-color: white;
+  position: absolute;
+  border-radius: 8px;
+  width: 600px;
+  left: 50%;
+  top: 450px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  box-shadow: 1px 1px 14px 2px grey;
+  @media (max-width: $maxMobile) {
+    width: calc(100% - 50px);
+    top: 500px;
+  }
+  @media (min-width: 1200px) {
+    left: auto;
+    right: 100px;
+    top: 200px;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    input,
+    select {
+      border: 0;
+      border-bottom: 1px solid #757575;
+    }
+    .inputs {
+      display: flex;
+      gap: 30px;
+      @media (max-width: $maxMobile) {
+        justify-content: space-between;
+        gap: 0;
+      }
+    }
+    &.date,
+    &.time {
+      @media (min-width: $minSmall) {
+        flex-direction: row;
+      }
+      justify-content: space-between;
+      margin-bottom: 35px;
+      input {
+        width: 80px;
+        font-size: 22px;
+        padding: 10px 0;
+        &::placeholder {
+          color: #757575;
+          font-size: 22px;
+        }
+        @media (max-width: $maxMobile) {
+          width: 70px;
+        }
+      }
+      span {
+        font-size: 22px;
+      }
+    }
+    &.people {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 60px;
+      border-bottom: 1px solid #757575;
+      button {
+        background-color: transparent;
+        font-size: 30px;
+        border: 0;
+        color: #9e7f66;
+        font-weight: bold;
+      }
+      @media (max-width: $maxMobile) {
+        padding: 10px 30px;
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    select {
+      width: 80px;
+      text-align: center;
+      color: #757575;
+      outline: none;
+    }
+  }
+  input.main-btn {
+    width: 100%;
+    margin-top: 35px;
+  }
+}
+footer {
+  padding: 25vh 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: $black-color;
+  text-align: center;
+  gap: 30px;
+
+  @media (max-width: $minMedium) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: $maxMobile) {
+    padding: 10vh 25px;
+  }
+  > div,
+  ul {
+    width: 100%;
+  }
+  li {
+    color: white;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    line-height: 28px;
+    letter-spacing: 2px;
+    font-weight: 300;
+  }
+
+  @media (min-width: $minSmall) and (max-width: $minMedium) {
+    > div,
+    ul {
+      width: calc(50% - 15px);
+    }
+    ul.open-time {
+      margin-left: auto;
+    }
+  }
+}

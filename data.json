@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Family Gathering",
+    "desc": " We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.",
+    "img": "https://dinner-restaurant-website-react.netlify.app/static/media/family-gathering-mobile.10e6f4ed.jpg"
+  },
+  {
+    "title": "Special Events",
+    "desc": "Whether it’s a romantic dinner or special date you’re celebrating with others we’ll look after you. We’ll be sure to mark your special date with an unforgettable meal.",
+    "img": "https://dinner-restaurant-website-react.netlify.app/static/media/special-events-mobile.3665c5e0.jpg"
+  },
+  {
+    "title": "Social Events",
+    "desc": "Are you looking to have a larger social event? No problem! We’re more than happy to cater for big parties. We’ll work with you to make your event a hit with everyone.",
+    "img": "https://dinner-restaurant-website-react.netlify.app/static/media/social-events-mobile.f8e0c0c2.jpg"
+  }
+]

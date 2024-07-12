@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Damon" />
+    <meta name="description" content="" />
+    <!-- main style css -->
+    <link rel="stylesheet" href="sass-files/style.css" />
+    <link rel="stylesheet" href="normalize-file/normalize.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Kumbh+Sans:wght@100..900&family=League+Spartan:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@100..900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="logo.jpg" type="img/x-icon" />
+    <title>Dine restaurant website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/533e5d4e51.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = () => {
+        const addBtn = document.querySelector("button.add-people");
+        const minusBtn = document.querySelector("button.minus-people");
+        const inputs = document.querySelectorAll("input:not(.main-btn)");
+        const submit = document.querySelectorAll("input.mian-btn");
+        const form = document.querySelector("form");
+        const eventLists = document.querySelectorAll(".events-list li");
+        let eventImg = document.querySelector(".event-img");
+        let eventTitle = document.querySelector(".event-title");
+        let eventDesc = document.querySelector(".event-desc");
+        let peopleNumber = document.querySelector("h1.number-of-people");
+        let peopleCount = document.querySelector("span.people-count");
+
+        addBtn.addEventListener("click", () => {
+          peopleCount.textContent = parseInt(peopleCount.textContent) + 1;
+          peopleNumber.innerHTML = peopleCount.textContent + " people";
+        });
+
+        minusBtn.addEventListener("click", () => {
+          if (+peopleCount.textContent > 1) {
+            peopleCount.textContent = parseInt(peopleCount.textContent) - 1;
+            peopleNumber.innerHTML =
+              peopleCount.textContent === "1"
+                ? peopleCount.textContent + " person"
+                : peopleCount.textContent + " people";
+          }
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          let counter = 0;
+          inputs.forEach((input) => {
+            if (input.checkValidity()) {
+              counter += 1;
+            }
+          });
+          if (counter === inputs.length) {
+            inputs.forEach((input) => {
+              input.value = "";
+              peopleCount.textContent = 4;
+              peopleNumber.innerHTML = peopleCount.textContent + " people";
+            });
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <main>
+      <section class="header-section">
+        <div class="logo">
+          <a href="index.html"
+            ><img
+              src="https://dinner-restaurant-website-react.netlify.app/static/media/logo.f6ae2c4c.svg"
+              alt=""
+          /></a>
+        </div>
+        <h1>Reservations</h1>
+        <p>
+          We can’t wait to host you. If you have any special requirements please
+          feel free to call on the phone number below. We’ll be happy to
+          accommodate you.
+        </p>
+        <a href="book.html" class="main-btn white-btn">RESERVE A PLACE</a>
+      </section>
+      <section class="space"></section>
+      <form method="post">
+        <label for="name">
+          Name
+
+          <input required type="text" name="name" id="name" />
+        </label>
+        <label for="email">
+          Email
+          <input required type="email" name="email" id="email" />
+        </label>
+        <label class="date">
+          <span> Pick a date</span>
+          <div class="inputs">
+            <input
+              required
+              min="0"
+              max="12"
+              type="number"
+              class="month"
+              placeholder="MM"
+            />
+            <input
+              required
+              min="0"
+              max="30"
+              type="number"
+              class="day"
+              placeholder="DD"
+            />
+            <input
+              required
+              min="2024"
+              max="2024"
+              type="number"
+              class="year"
+              placeholder="YYYY"
+            />
+          </div>
+        </label>
+        <label class="time">
+          <span>Pick a time</span>
+          <div class="inputs">
+            <input
+              required
+              min="6"
+              max="11"
+              type="number"
+              class="hours"
+              placeholder="00"
+            />
+            <input
+              required
+              min="0"
+              max="59"
+              type="number"
+              class="minutes"
+              placeholder="00"
+            />
+            <select>
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
+          </div>
+        </label>
+        <label class="people">
+          <button class="minus-people">-</button>
+          <h1 class="number-of-people">
+            <span class="people-count">4</span> people
+          </h1>
+          <button class="add-people">+</button>
+        </label>
+        <input type="submit" value="RESERVATION" class="main-btn black-btn" />
+      </form>
+    </main>
+    <footer>
+      <div class="logo">
+        <a href="index.html"
+          ><img
+            src="https://dinner-restaurant-website-react.netlify.app/static/media/logo.f6ae2c4c.svg"
+            alt=""
+        /></a>
+      </div>
+      <ul class="location">
+        <li>Marthwaite, Sedbergh</li>
+        <li>Cumbria</li>
+        <li>+00 44 123 4567</li>
+      </ul>
+      <ul class="open-time">
+        <li>Open Times</li>
+        <li>Mon - Fri: 09:00 AM - 10:00 PM</li>
+        <li>Sat - Sun: 09:00 AM - 11:30 PM</li>
+      </ul>
+    </footer>
+    <script src="js-files/main.js"></script>
+  </body>
+</html>
